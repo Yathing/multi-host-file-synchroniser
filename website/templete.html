@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>To Do list</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <p>Logged as <b>zack</b><a class="waves-effect waves-light btn">LOGOUT</a></p>
+
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">filter_drama</i> Invitations
+                    <span class="new badge">4</span>
+                </div>
+                <div class="collapsible-body">
+                    <p>
+                        <span class="red-text"><b>Geo </b></span><a href="">accept</a> | <a href="">deny</a>
+                    </p>
+                    <p>
+                        <span class="red-text"><b>Tom </b></span><a href="">accept</a> | <a href="">deny</a>
+                    </p>
+                    <p>
+                        <span class="red-text"><b>zihao </b></span><a href="">accept</a> | <a href="">deny</a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <h1 class="center-align green-text text-darken-4">To Do List</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Assigned to</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Slim down to 10kg</td>
+                    <td>zihao</td>
+                    <td><a title="edit" href=""><i class="small material-icons">edit</i></a></td>
+                    <td><a title="delete" href=""><i class="small material-icons">delete_forever</i></a></td>
+                </tr>
+                <tr>
+                    <td><a href=""><strike>Slim down to 10kg</strike></a></td>
+                    <td>zihao</td>
+                    <td><a title="edit" href=""><i class="small material-icons">edit</i></a></td>
+                    <td><a title="delete" href=""><i class="small material-icons">delete_forever</i></a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Slim down to 10kg</a></td>
+                    <td>zihao</td>
+                    <td><a title="edit" href=""><i class="small material-icons">edit</i></a></td>
+                    <td><a title="delete" href=""><i class="small material-icons">delete_forever</i></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="text" type="text" class="validate">
+                    <label for="text">New Task</label>
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <select>
+                <option value="" disabled selected>Assign to:</option>
+                <option value="1">zihao</option>
+                <option value="2">Geo 2</option>
+                <option value="3">Tom</option>
+                <option value="4">Yixin</option>
+                <option value="5">myself</option>
+              </select>
+                <label>Assign task</label>
+            </div>
+
+            <a class="waves-effect waves-light btn">Add new task</a>
+
+        </form>
+
+        <br><br>
+        <ul class="collection with-header">
+            <li class="collection-header">
+                <h4>My Co-workers</h4>
+            </li>
+            <li class="collection-item">
+                <div>zihao<a href="#!" class="secondary-content">delete</a></div>
+            </li>
+            <li class="collection-item">
+                <div>Geo<a href="#!" class="secondary-content">delete</a></div>
+            </li>
+            <li class="collection-item">
+                <div>Tom<a href="#!" class="secondary-content">delete</a></div>
+            </li>
+            <li class="collection-item">
+                <div>Yixin<a href="#!" class="secondary-content">delete</a></div>
+            </li>
+        </ul>
+
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="Task content to edit" id="task2" type="text" class="validate">
+                    <label for="text">Edit Task</label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn">Edit task</a>
+
+        </form>
+
+
+
+
+    </div>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        var elems = document.querySelectorAll('.collapsible');
+        var options;
+        var instances = M.Collapsible.init(elems, options);
+
+        var elem2 = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elem2);
+    </script>
+</body>
+
+</html>
