@@ -44,13 +44,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input name="task" id="text" type="text" class="validate">
-                    <label for="text">New Task</label>
+                    <label for="text">New File</label>
                 </div>
             </div>
 
             @include('partials.coworkers')
 
-            <button type="submit" class="waves-effect waves-light btn">Add new task</button>
+            <button type="submit" class="waves-effect waves-light btn">Add new File</button>
             @csrf
         </form>
 
