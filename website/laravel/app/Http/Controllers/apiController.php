@@ -10,7 +10,7 @@ class apiController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all(); // find all the tasks
+        $tasks = Task::all(); // find all the tasks , 
         return $tasks;
     }
 
@@ -21,26 +21,25 @@ class apiController extends Controller
     }
 
     public function store(Request $request)
-    {
-        if($request->input('task'))
-        {
-            $task = new Task;  //if we want to save new task, we must create new $task object
-            $task->content = $request->input('task'); //save the value to the form which filed named task to the content column
-            Auth::user()->tasks()->save($task);   
-        }
+    {   
+        $task = new Task;  //if we want to save new task, we must create new $task object
+        $task->content = $request->input('content'); //save the value to the form which filed named task to the content column
+        $task->user_id = $request->input('user_id'); // user_id  the user account id, which data belongs to the user we want to find
+        $task->save();  
+        
         return response()->json($task, 201);      //資料新增，回傳201代表資料成功新增
     }
 
 
-
     public function update($id, Request $request)
     {
-        if($request->input('task'))
-        {
-            $task = Task::find($id);
-            $task->content = $request->input('task');
-            $task->save();
-        }
+        $task = Task::find($id);  // use PUT to update the data , Find which data we want to update
+                                  // use id(database) to find which data we need to update 
+        $task->user_id = $request->input('user_id'); // user_id  the user account id, which data belongs to the user we want to find
+        $task->status = $request->input('status'); // 
+        $task->content = $request->input('content');// the content, which is the content name
+        $task->save();
+        
         return response()->json($task, 200);   //資料更新，回傳200代表OK
     }
 

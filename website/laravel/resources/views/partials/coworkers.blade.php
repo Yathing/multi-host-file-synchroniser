@@ -8,6 +8,6 @@
                 <option value="4">Yixin</option>
                 <option value="5">myself</option>
               </select>
-                <label>Assign task</label>
+                <label>Assign File</label>
 </div>
 @endisAdmin
