@@ -9,6 +9,7 @@
                     @endisAdmin
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>Download</th>
                 </tr>
             </thead>
 
@@ -25,6 +26,7 @@
             @isAdmin<td>{{ $task->user->name }}</td>@endisAdmin
                     <td><a title="edit" href="{{ route('edit',$task->id) }}"><i class="small material-icons">edit</i></a></td>
                     <td><a title="delete" onclick="return confirm('Delete?');" href="{{ route('delete',$task->id) }}"><i class="small material-icons">delete_forever</i></a></td>
+                    <td><a title="download" href="{{ route('file_download',$task->id) }}"><i class="small material-icons">save_alt</i></a></td>
                 </tr> 
                 @endforeach
             </tbody>

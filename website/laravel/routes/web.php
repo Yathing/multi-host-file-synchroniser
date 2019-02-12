@@ -19,7 +19,13 @@ Route::middleware(['auth' ])->group(function () {
     Route::post('/update/{id}','ToDoController@update')->name('update');
     Route::get('/delete/{id}','ToDoController@delete')->name('delete');
 
+    
+
 });
+
+//190210
+Route::get('/file_download/{id}', 'ToDoController@file_download')->name('file_download');
+
 
 
 
