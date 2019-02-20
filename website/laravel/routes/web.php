@@ -10,25 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth' ])->group(function () {
-    
-    Route::get('/', 'ToDoController@index');
 
-    Route::post('/store','ToDoController@store')->name('store');
-    Route::get('/edit/{id}','ToDoController@edit')->name('edit');
-    Route::post('/update/{id}','ToDoController@update')->name('update');
-    Route::get('/delete/{id}','ToDoController@delete')->name('delete');
-
-    
-
+Route::get('/', function () {
+    return view('home');
 });
-
-//190210
-Route::get('/file_download/{id}', 'ToDoController@file_download')->name('file_download');
-
-
-
-
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home'); //??? difference betwwen first one and second one
+
+Route::resource('files', 'FileController');
+
+Route::resource('folders','FolderController');

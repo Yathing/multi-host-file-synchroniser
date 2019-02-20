@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +16,3 @@ use App\Task;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-//apiController＠後面都有對應的function
-Route::get('api','apiController@index');
-Route::get('api/{id}','apiController@show');
-Route::post('api','apiController@store');
-Route::put('api/{id}','apiController@update');
-Route::delete('api/{id}','apiController@delete');
