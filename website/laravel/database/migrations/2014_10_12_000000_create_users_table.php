@@ -8,10 +8,10 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     * for migrate
+     *
      * @return void
      */
-    public function up()   
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
@@ -20,13 +20,13 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean('is_admin')->default(false);
+            $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *for rollback
+     *
      * @return void
      */
     public function down()
