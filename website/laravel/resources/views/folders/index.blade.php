@@ -27,8 +27,6 @@
                                             <td class="txt-oflo">{{ $folder->name}}</td>
                                             <td><span class="text-success">{{ $folder->created_at}}</span></td>
                                             <td>
-
-                                            <a class="btn btn-primary" href="{{ route('folders.show',$folder->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('folders.edit',$folder->id) }}">Edit</a> 
                                             {!! Form::open(['method' => 'DELETE','route' => ['folders.destroy', $folder->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}

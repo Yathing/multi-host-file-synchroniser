@@ -12,6 +12,6 @@ class Folder extends Model
     }
 
     protected $fillable = [
-        'name','time','user_id'
+        'name','user_id'
     ];
 }
