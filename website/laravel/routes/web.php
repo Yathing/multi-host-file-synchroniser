@@ -22,3 +22,7 @@ Route::get('/', 'HomeController@index')->name('home'); //??? difference betwwen 
 Route::resource('files', 'FileController');
 
 Route::resource('folders','FolderController');
+
+Route::post('file/upload', 'FileController@store')->name('file.upload');
+
+Route::post('upload', 'FileController@upload')->name('upload');

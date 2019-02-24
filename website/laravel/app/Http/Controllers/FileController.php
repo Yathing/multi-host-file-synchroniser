@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\File;
+use App\Folder;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class FileController extends Controller
 {
@@ -11,9 +16,15 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        
+        return view('files.index');
     }
 
     /**
@@ -23,7 +34,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        return view('files.create');
     }
 
     /**
@@ -34,8 +45,20 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+       $request->validate([
+        'title' => 'required:max:255',
+        'overview' => 'required',
+        'price' => 'required|numeric'
+      ]);
+
+      auth()->user()->files()->create([
+        'title' => $request->get('title'),
+        'overview' => $request->get('overview'),
+        'price' => $request->get('price')
+      ]);
+
+      return back()->with('message', 'Your file is submitted Successfully');
+    }      
 
     /**
      * Display the specified resource.
@@ -80,5 +103,28 @@ class FileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function upload(Request $request)
+    {
+      $uploadedFile = $request->file('file');
+      $filename = time().$uploadedFile->getClientOriginalName();
+
+      Storage::disk('local')->putFileAs(
+        'files/'.$filename,
+        $uploadedFile,
+        $filename
+      );
+
+      $upload = new Upload;
+      $upload->filename = $filename;
+
+      $upload->user()->associate(auth()->user());
+
+      $upload->save();
+
+      return response()->json([
+        'id' => $upload->id
+      ]);
     }
 }
