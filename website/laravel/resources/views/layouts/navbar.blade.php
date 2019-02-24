@@ -31,9 +31,6 @@
                 <a href="{{ url('') }}" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
             </li>
             <li>
-                <a href="{{ url('') }}" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">User Management</span></a>
-            </li>
-            <li>
                 <a href="{{ url('/folders') }}" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="hide-menu">Folders</span></a>
             </li>
             <li>

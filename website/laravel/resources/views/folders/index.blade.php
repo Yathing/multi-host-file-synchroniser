@@ -2,7 +2,7 @@
 @section('content')
    <br>
    <h2 style="display:inline;">Folders</h2>
-   <a class="btn btn-info" style="float:right" href="{{ route('folders.create') }}"> Add new folders</a>
+   <a class="btn btn-info" style="float:right" href="{{ route('folders.create') }}"> Add your folders</a>
    <hr>
 
 

@@ -102,4 +102,6 @@ class FolderController extends Controller
         return redirect()->route('folders.index')
                         ->with('success','Folder deleted successfully');        //
     }
+
+    
 }
