@@ -1,19 +1,9 @@
 @extends('layouts/nav')
-
-@section('scripts')
-  <script>
-    var drop = new Dropzone('#file', {
-      createImageThumbnails: false,
-      addRemoveLinks: true,
-      url: "{{ route('upload') }}",
-      headers: {
-        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-      }
-    });
-  </script>
-@endsection
-
 @section('content')
+<br>
+<h2 style="display:inline;">Add your file in here</h2>
+<a class="btn btn-info" style="float:right" href="{{ route('files.index') }}">Back</a>
+<hr>  
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -23,7 +13,6 @@
             </div>
             @endif
             <div class="card">
-                <div class="card-header">File Upload</div>
                 <div class="card-body">
                 <form method="POST" action="{{ route('file.upload') }}" aria-label="{{ __('Upload') }}">
                       @csrf
@@ -80,12 +69,17 @@
         </div>
     </div>
 </div>
+
+
+    <script>
+    var drop = new Dropzone('#file', {
+      createImageThumbnails: false,
+      addRemoveLinks: true,
+      url: "{{ route('upload') }}",
+      headers: {
+        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+      }
+    });
+    </script>
 @endsection
 
-@section('scripts')
-  <script>
-    var drop = new Dropzone('#file', {
-      url: "{{ route('upload') }}"
-    });
-  </script>
-@endsection

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\File;
-use App\Folder;
+use App\Upload;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -23,8 +24,8 @@ class FileController extends Controller
 
     public function index()
     {
-        
-        return view('files.index');
+        $files = Auth::user()->files()->latest()->paginate(5);
+        return view('files.index',compact('files'));
     }
 
     /**
@@ -102,7 +103,9 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Auth::user()->files()->find($id)->delete();
+        return redirect()->route('files.index')
+                        ->with('success','File deleted successfully');  
     }
 
     public function upload(Request $request)
@@ -110,7 +113,7 @@ class FileController extends Controller
       $uploadedFile = $request->file('file');
       $filename = time().$uploadedFile->getClientOriginalName();
 
-      Storage::disk('local')->putFileAs(
+       Storage::disk('local')->putFileAs(
         'files/'.$filename,
         $uploadedFile,
         $filename

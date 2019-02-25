@@ -6,33 +6,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="icon" type="image/png" sizes="16x16" href="">
-<title  >File Sync</title>
+<title>File Sync</title>
 <!-- Bootstrap Core CSS -->
 <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- dropzone CSS -->
-{{-- <link href="/dropzone/dist/min/dropzone.min.css" rel="stylesheet"> --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css"> --}}
+<link href="/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+<script src="/dropzone/dist/dropzone.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
 <!-- Menu CSS -->
 <link href="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 <!-- toast CSS -->
 <link href="/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
 <!-- morris CSS -->
 <link href="/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
-<!-- animation CSS -->
-<link href="/css/animate.css" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link href="/css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="/css/colors/blue-dark.css" id="theme" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
 </head>
 
     <body>
@@ -56,7 +51,8 @@
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Dropzone Core JavaScript -->
     
-    {{-- <script src="/dropzone/dist/min/dropzone.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script> --}}
+    
     <!-- Menu Plugin JavaScript -->
     <script src="/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
@@ -86,29 +82,6 @@
         })
     });
     </script>
-    <script type="text/javascript">
-        Dropzone.options.dropzone =
-         {
-            maxFilesize: 12,
-            renameFile: function(file) {
-                var dt = new Date();
-                var time = dt.getTime();
-               return time+file.name;
-            },
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
-            addRemoveLinks: true,
-            timeout: 5000,
-            success: function(file, response) 
-            {
-                console.log(response);
-            },
-            error: function(file, response)
-            {
-               return false;
-            }
-        };
-    </script>
-
-
+ 
     </body>
 </html>

@@ -100,7 +100,7 @@ class FolderController extends Controller
     {
         Auth::user()->folders()->find($id)->delete();
         return redirect()->route('folders.index')
-                        ->with('success','Folder deleted successfully');        //
+                        ->with('success','Folder deleted successfully');
     }
 
     

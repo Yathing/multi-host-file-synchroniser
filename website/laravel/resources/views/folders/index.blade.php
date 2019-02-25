@@ -24,7 +24,7 @@
                                     <tbody>
                                     @foreach ($folders as $folder)
                                         <tr>
-                                            <td class="txt-oflo">{{ $folder->name}}</td>
+                                            <td class="txt-oflo">{{ $folder->title}}</td>
                                             <td><span class="text-success">{{ $folder->created_at}}</span></td>
                                             <td>
                                             <a class="btn btn-primary" href="{{ route('folders.edit',$folder->id) }}">Edit</a> 
