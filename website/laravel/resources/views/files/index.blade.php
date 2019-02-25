@@ -5,9 +5,7 @@
    <a class="btn btn-info" style="float:right" href="{{ route('files.create') }}"> Add your files</a>
    <hr>
 
-
     <!-- <div style="padding:0px 100px 0px 100px;"> -->
-
     <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
@@ -21,20 +19,20 @@
                                             <th>Created_at</th>
                                         </tr>
                                     </thead>
-                                    {{-- <tbody>
+                                    <tbody>
                                     @foreach ($files as $file)
                                         <tr>
-                                            <td class="txt-oflo">{{ $file->name}}</td>
+                                            <td class="txt-oflo">{{ $file->title}}</td>
                                             <td><span class="text-success">{{ $file->created_at}}</span></td>
                                             <td>
                                             <a class="btn btn-primary" href="{{ route('files.update',$file->id) }}">Update</a> 
-                                            {!! Form::open(['method' => 'DELETE','route' => ['folders.destroy', $folder->id],'style'=>'display:inline']) !!}
+                                            {!! Form::open(['method' => 'DELETE','route' => ['files.destroy', $file->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
                                             </td>
                                         </tr>
                                     </tbody>
-                                    @endforeach --}}
+                                    @endforeach
                                 </table> 
                             </div>
                         </div>
