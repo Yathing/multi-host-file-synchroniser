@@ -108,10 +108,19 @@ class FileController extends Controller
                         ->with('success','File deleted successfully');  
     }
 
+    public function download(Request $request, $id)
+    { 
+      $download_file = Auth::user()->uploads()->find($id);
+      $download_filename = $download_file->filename;
+
+      return response()->download(storage_path('app/files/files/'.$download_filename.'/'.$download_filename));
+
+    }
+
     public function upload(Request $request)
     {
       $uploadedFile = $request->file('file');
-      $filename = time().$uploadedFile->getClientOriginalName();
+      $filename = date("Y-m-d H.i.s ").'.'.$uploadedFile->getClientOriginalName();
 
        Storage::disk('local')->putFileAs(
         'files/'.$filename,
