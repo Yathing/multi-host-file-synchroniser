@@ -26,3 +26,6 @@ Route::resource('folders','FolderController');
 Route::post('file/upload', 'FileController@store')->name('file.upload');
 
 Route::post('upload', 'FileController@upload')->name('upload');
+
+//2019-2-28
+Route::get('file/download/{id}', 'FileController@download')->name('file.download');
