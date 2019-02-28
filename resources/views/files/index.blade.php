@@ -29,6 +29,13 @@
                                             {!! Form::open(['method' => 'DELETE','route' => ['files.destroy', $file->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
+
+                                            <a class="btn btn-primary" href="{{ route('file.download',$file->id) }}">Download</a>
+                                            
+
+
+
+
                                             </td>
                                         </tr>
                                     </tbody>
