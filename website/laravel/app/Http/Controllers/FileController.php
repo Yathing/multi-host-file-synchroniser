@@ -78,9 +78,13 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //2019-3-1
     public function edit($id)
     {
-        //
+      $file = Auth::user()->files()->find($id);
+
+      return view('files.edit',compact('file'));
     }
 
     /**
@@ -90,9 +94,25 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //2019-3-1
     public function update(Request $request, $id)
     {
-        //
+
+    
+      $request->validate([
+        'title' => 'required:max:255',
+        'overview' => 'required',
+        'price' => 'required|numeric'
+      ]);
+
+    
+      //$update_file = Auth::user()->files()->find($id);
+      //var_dump($file);
+
+      Auth::user()->files()->find($id)->update($request->all());
+        return redirect()->route('files.index')
+                        ->with('success','File updated successfully');
     }
 
     /**
@@ -101,18 +121,26 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //2019-3-1
     public function destroy($id)
     {
+        //201931
+        // $disk = Storage::disk('local');
+        $filename = Auth::user()->uploads()->find($id)->filename;
+        Storage::deleteDirectory('/files/'.$filename);
+
         Auth::user()->files()->find($id)->delete();
+        DB::table('files')->where('id' , '=' , $id)->delete();
         return redirect()->route('files.index')
                         ->with('success','File deleted successfully');  
     }
 
+    //2019-2-28
     public function download(Request $request, $id)
     { 
       $download_file = Auth::user()->uploads()->find($id);
       $download_filename = $download_file->filename;
-
       return response()->download(storage_path('app/files/files/'.$download_filename.'/'.$download_filename));
 
     }
