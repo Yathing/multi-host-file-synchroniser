@@ -29,3 +29,6 @@ Route::post('upload', 'FileController@upload')->name('upload');
 
 //2019-2-28
 Route::get('file/download/{id}', 'FileController@download')->name('file.download');
+
+//2019-3-1
+Route::post('files/update/{id}', 'FileController@update')->name('files.update');

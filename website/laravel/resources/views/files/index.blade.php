@@ -25,7 +25,7 @@
                                             <td class="txt-oflo">{{ $file->title}}</td>
                                             <td><span class="text-success">{{ $file->created_at}}</span></td>
                                             <td>
-                                            <a class="btn btn-primary" href="{{ route('files.update',$file->id) }}">Update</a> 
+                                            <a class="btn btn-primary" href="{{ route('files.edit',$file->id) }}">Update</a> 
                                             {!! Form::open(['method' => 'DELETE','route' => ['files.destroy', $file->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
