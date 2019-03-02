@@ -72,11 +72,11 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $.toast({
-            heading: 'Welcome to Pixel admin',
-            text: 'Use the predefined ones, or specify a custom position object.',
+            heading: 'Welcome to File Sync',
+            text: '2019 Group Project.',
             position: 'top',
-            loaderBg: '#ff6849',
-            icon: 'info',
+            loaderBg: '#9EC600',
+            icon: 'success',
             hideAfter: 3500,
             stack: 6
         })
