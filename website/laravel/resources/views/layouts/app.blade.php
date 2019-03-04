@@ -72,8 +72,13 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $.toast({
+<<<<<<< HEAD
             heading: 'Welcome to File Sync',
             text: '2019 Group Project.',
+=======
+            heading: 'Welcome to multi-host-file-synchroniser',
+            text: '©2019 Group Project',
+>>>>>>> upstream/master
             position: 'top',
             loaderBg: '#9EC600',
             icon: 'success',
