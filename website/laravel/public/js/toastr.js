@@ -1,8 +1,8 @@
 $(document).ready(function() {
       $(".tst1").click(function(){
            $.toast({
-            heading: '歡迎來到折價倦卷管理後台',
-            text: '開始統計您的所有折價卷以及會員吧',
+            heading: 'Welcome to multi-host-file-synchroniser',
+            text: '©2019 Group Project',
             position: 'top-right',
             loaderBg:'#ff6849',
             icon: 'info',
@@ -14,8 +14,8 @@ $(document).ready(function() {
 
       $(".tst2").click(function(){
            $.toast({
-            heading: 'Welcome to my Pixel admin',
-            text: 'Use the predefined ones, or specify a custom position object.',
+            heading: 'Welcome to multi-host-file-synchroniser',
+            text: '©2019 Group Project',
             position: 'top-right',
             loaderBg:'#ff6849',
             icon: 'warning',
@@ -26,8 +26,8 @@ $(document).ready(function() {
      });
       $(".tst3").click(function(){
            $.toast({
-            heading: '歡迎來到折價倦卷管理後台',
-            text: '開始統計您的所有折價卷以及會員吧',
+            heading: 'Welcome to multi-host-file-synchroniser',
+            text: '©2019 Group Project',
             position: 'top-right',
             loaderBg:'#ff6849',
             icon: 'success',
@@ -39,8 +39,8 @@ $(document).ready(function() {
 
       $(".tst4").click(function(){
            $.toast({
-            heading: '歡迎來到折價倦卷管理後台',
-            text: 'Use the predefined ones, or specify a custom position object.',
+            heading: 'Welcome to multi-host-file-synchroniser',
+            text: '©2019 Group Project',
             position: 'top-right',
             loaderBg:'#ff6849',
             icon: 'error',
