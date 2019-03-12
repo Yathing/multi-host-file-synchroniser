@@ -16,26 +16,25 @@
                                     <thead>
                                         <tr>
                                             <th>File name</th>
+                                            <th>Download File</th>
                                             <th>Created_at</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @foreach ($files as $file)
                                         <tr>
-                                            <td class="txt-oflo">{{ $file->title}}</td>
-                                            <td><span class="text-success">{{ $file->created_at}}</span></td>
+                                            <td class="txt-oflo">
+                                                {{ $file->title}}</td>
+                                             <td class="txt-oflo">   
+                                            <a  href="{{Response::download(storage_path().'/app/files/files/'.$file->filename.'/'.$file->filename)}}" download >
+                                             {{ $file->filename }}</a>
+                                            </td>
+                                            <td><span class="text-success">{{ $file->created_at}} </span></td>
                                             <td>
-                                            <a class="btn btn-primary" href="{{ route('files.edit',$file->id) }}">Update</a> 
+                                            <a class="btn btn-primary" href="{{ route('files.update',$file->id) }}">Update</a> 
                                             {!! Form::open(['method' => 'DELETE','route' => ['files.destroy', $file->id],'style'=>'display:inline']) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
-
-                                            <a class="btn btn-primary" href="{{ route('file.download',$file->id) }}">Download</a>
-                                            
-
-
-
-
                                             </td>
                                         </tr>
                                     </tbody>
