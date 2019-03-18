@@ -1,0 +1,15 @@
+{
+  "name": "package.json",
+  "version": "1.4.0",
+  "description": "file sync",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "zihaoaka",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13",
+    "gulp": "^4.0.0"
+  }
+}
