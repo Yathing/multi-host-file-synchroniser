@@ -8,7 +8,8 @@ let mainWindow;
 
 function createMainWindow() {
     mainWindow = new BrowserWindow({width: 800, height: 600});
-    mainWindow.loadURL(`file://${__dirname}/html/index.html`);
+    //mainWindow.loadURL(`file://${__dirname}/html/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/html/page_login.html`);
     mainWindow.webContents.openDevTools();
 
     mainWindow.webContents.session.on('will-download', (event, item, webContents) => {

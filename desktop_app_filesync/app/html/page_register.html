@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>File Synchronize</title>
+  </head>
+  <body>
+    <h1>New User</h1>
+ 
+      <label>Username</label>
+      <input type="text" id="user"></br></br>
+      <label>Email   </label>
+      <input type="password" id="mail"><br><br>
+      <label>Password</label>
+      <input type="text" id="pwd1"></br></br>
+      <label>Confirmation</label>
+      <input type="password" id="pwd2"><br><br>
+  
+    <input type="button" name="" value="register" onclick="return register()">
+    <input type="button" name="" value="Cancel" onclick="return cancel()">
+
+     
+   
+    <script>
+    
+        function add(){
+            return true;
+        }
+
+
+        function register(){
+          var user = document.getElementById("user").value;
+          var mail = document.getElementById("mail").value;
+          var pwd1 = document.getElementById("pwd1").value;
+          var pwd2 = document.getElementById("pwd2").value;
+          
+         
+          if (user == "" || pwd1 == ""|| pwd2 == ""|| mail == "") {
+				    alert("input cannot be null");
+				    return false;
+          }
+
+      
+          if (pwd1.length< 6) {
+            alert("password length should not be less than 6")
+            return false;
+          }
+
+          if (pwd1 != pwd2) {
+            alert("password does not match")
+            return false;
+          }
+          //*/
+          if(add()){
+            alert("register successfully")
+            window.location.href='page_login.html';
+          }
+
+
+        }
+
+        function cancel(){
+            window.location.href='page_login.html';
+        }
+    
+  
+    </script>
+  </body>
+</html>
