@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.Response;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView loading;
 
+    EditText targeturl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         loading.setVisibility(View.INVISIBLE);
 
+        targeturl = (EditText) findViewById(R.id.targeturl);
+
     }
 
 
@@ -100,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void uploadbut(View view) {
-        String url = "http://ptsv2.com/t/u8sbz-1552759556/post";
+        String url = targeturl.getText().toString();
         File file = new File(filepath);
         System.out.println(file.exists());
         System.out.println(file.getName());
@@ -148,4 +154,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void doLogout(View view) {
+        SharedPreferences preferences = getSharedPreferences("FileSync", 0);
+        preferences.edit().remove("Password").apply();
+        Intent i = new Intent(MainActivity.this, MyLogin.class);
+        startActivity(i);
+    }
 }
