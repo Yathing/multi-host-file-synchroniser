@@ -7,11 +7,27 @@
     </head>
     <body>
         <p>file sync</p>
+        <p id = "welcome"> </p>
         <button onclick="upload()">upload</button>
         <button onclick="download()">download</button>
        
         <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
         <span>Saved at->    </span><span id="selected_directory"></span>
         
+        <button onclick="logout()">logout</button>
     </body>
+
+    <script>
+    //通过session获取username
+    user = localStorage.getItem("user");  
+    document.getElementById("welcome").innerHTML="Hello "+ user;
+
+    function logout(){
+        //sessionStorage.clear();
+        window.location.href='page_login.html';
+    }
+
+    </script>
+
+
 </html>
