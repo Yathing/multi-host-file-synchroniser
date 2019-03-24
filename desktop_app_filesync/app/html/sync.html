@@ -15,7 +15,7 @@
                 <a href="./index.html">MainPage</a>
                 <a href="./sync.html">File</a>
                 <a href="#">Contact Us</a>
-                <a onclick="return logout()">Logout</a> <br><br>
+                <a onclick="return logout()">Logout</a>
 
                 <img src="./icon.png" width="250px" height="250px">
         </div>
@@ -25,24 +25,45 @@
             <div>
                     <h2 id = "welcome"> </h2>
             </div>
+
+            <div>
+            <button onclick="getAllFile()">getAllFile</button>
+            </div>
+
             <button onclick="upload()">upload</button>
-            <button onclick="download()">download</button>
             <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
             <span>Saved at->    </span><span id="selected_directory"></span>
+            
+            <table border="1">
+                <tr>
+                    <th><p><span>file id</span></p></th>
+                    <th><p><span>file name</span></p></th>
+                    <th><p><span>download</span></p></th>
+                </tr>
+
+                <tr>
+                    <td><p><span>1</span></p></td>
+                    <td><p><span>screen1</span></p></td>
+                    <td><button onclick="download()">download</button></td>
+
+                </tr>
+
+                <tr>
+                    <td><p><span>2</span></p></td>
+                    <td><p><span>screen2</span></p></td>
+                    <td><button onclick="download()">download</button></td>    
+                </tr>
+
+            </table>
+
+           
     
-            <div>
-                <button onclick="getAllFile()">getAllFile</button>
-            </div>
-
-            <div>
-                <button onclick="singleupload()">testbutton</button>
-            </div>
-
-            <p id="yixin">This is test file name.</p>
+          
 
         </div>
        
     </body>
+
 
 
 </html>
