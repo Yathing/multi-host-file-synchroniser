@@ -11,5 +11,6 @@
   "devDependencies": {
     "electron-prebuilt": "^1.4.13",
     "gulp": "^4.0.0"
-  }
+  },
+  "dependencies": {}
 }
