@@ -10,6 +10,7 @@
         }
     </style>
   </head>
+
   <body>
     <div id="page-login">
         <div id="title">
@@ -34,7 +35,7 @@
             </div>
 
             <div class="remember-me">
-                <input type="checkbox">
+                <input type="checkbox" id="remb_me">
                 <span style="color: #DDD">Remember Me</span>
             </div>
 
@@ -59,14 +60,34 @@
 
 
     <script>
-      //test only
-      function test(){
-        alert("start");
-        require('./login.js')
-        alert("end");
-      }
-
       
+      var storage = window.localStorage;
+    
+      if("yes" == storage["isstorename"]){
+          document.getElementById("remb_me").checked= true;
+          document.getElementById("username").value = storage["loginname"];
+          document.getElementById("password").value = storage["loginpwd"];         
+      }
+     
+
+      function remember(){
+          //判断是否保存用户名
+          var storage = window.localStorage;
+          var box = document.getElementById("remb_me");
+          //alert("box choic is "+box.check);
+          if(box.checked==true){
+              //存储到loaclStage
+              storage["loginname"] =document.getElementById("username").value;
+              storage["loginpwd"] = document.getElementById("password").value;
+              storage["isstorename"] =  "yes"; 
+          }else{
+              storage["loginphone"] = "";
+              storage["loginname"] = "";
+              storage["isstorename"] =  "no"; 
+          }
+
+
+      }
       //request login
       // call by login()
       function check(user, pwd){
@@ -87,33 +108,31 @@
           request(options, function (error, response, body) {
             if (error) throw new Error(error);
             console.log(body);
-            alert("test1"+body.success);
+            //alert("test1"+body.success);
             if(body.success==false) {
               alert("log in error");
             }
             else if(body.success==true){
-              alert("succ");
+              alert("log in successfullt, jump to main page");
+              
+              remember();
+
+              localStorage.setItem("user", user);
               window.location.href='index.html';
             }            
           });
       }
 
       function login(){
-          var user = document.getElementById("username").value;
-          var pwd = document.getElementById("password").value;
+        var user = document.getElementById("username").value;
+        var pwd = document.getElementById("password").value;
+         //alert("login: "+user +" "+ pwd)
 
           if (user == "" || pwd == ""){
             alert("username and password cannot be null");
           }
           else{
-          check(user,pwd);
-          //  alert("result is" + check(user,pwd))
-          //   if(check(user,pwd)){
-          //     window.location.href='index.html';
-          //   }
-          //   else{
-          //     alert("error");
-          //   }
+              check(user,pwd);
           }     
       }
 
