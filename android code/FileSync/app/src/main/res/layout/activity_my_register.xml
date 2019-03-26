@@ -5,52 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/linlay"
-    tools:context=".MainActivity">
-
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="filechooser"
-        android:text="Select File" />
-
-    <TextView
-        android:id="@+id/selected"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
+    tools:context=".MyRegister">
 
     <EditText
-        android:id="@+id/targeturl"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="http://ptsv2.com/t/u8sbz-1552759556/post" />
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/uploadbut"
+        android:id="@+id/registerbut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="uploadbut"
-        android:text="Upload" />
-
-    <TextView
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="loading..."
-        android:textSize="22dp"
-        android:textAlignment="center"/>
+        android:onClick="doRegister"
+        android:text="Register" />
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doLogout"
-        android:text="Logout" />
-
+        android:onClick="goLogin"
+        android:text="Go Login" />
 </LinearLayout>

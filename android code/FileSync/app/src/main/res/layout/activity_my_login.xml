@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress" />
+        android:hint="username" />
 
     <EditText
         android:id="@+id/passwordView"
@@ -30,5 +29,12 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:onClick="doLogin"/>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goRegister"
+        android:text="Go Register" />
 
 </LinearLayout>

@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.Response;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView loading;
 
+    EditText targeturl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         loading.setVisibility(View.INVISIBLE);
 
+        targeturl = (EditText) findViewById(R.id.targeturl);
+
     }
 
 
@@ -100,16 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void uploadbut(View view) {
-        String url = "http://ptsv2.com/t/u8sbz-1552759556/post";
+        //String url = targeturl.getText().toString();
+        String url = "http://46.101.20.26:80/UploadSingle";
         File file = new File(filepath);
-        System.out.println(file.exists());
-        System.out.println(file.getName());
         loading.setVisibility(View.VISIBLE);
 
 
         AndroidNetworking.upload(url)
                 .addMultipartFile("image", file)
-                .addMultipartParameter("id", "cat")
+                .addMultipartParameter("id", "11")
                 .addMultipartParameter("username", "john")
                 .setTag("uploadTest")
                 .setPriority(Priority.HIGH)
@@ -117,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUploadProgressListener(new UploadProgressListener() {
                     @Override
                     public void onProgress(long bytesUploaded, long totalBytes) {
-                        System.out.println(bytesUploaded);
                         double up = (double) bytesUploaded;
                         double total = (double) totalBytes;
                         double percent = up / total;
@@ -148,4 +152,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void doLogout(View view) {
+        SharedPreferences preferences = getSharedPreferences("FileSync", 0);
+        preferences.edit().remove("Password").apply();
+        Intent i = new Intent(MainActivity.this, MyLogin.class);
+        startActivity(i);
+    }
 }
