@@ -13,7 +13,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
 
     mainWindow.webContents.session.on('will-download', (event, item, webContents) => {
-        item.setSavePath(savefile_path + item.getFilename())
+        item.setSavePath(savefile_path + original_name)
         item.on('updated', (event, state) => {
           if (state === 'interrupted') {
             console.log('Download is interrupted but can be resumed')
@@ -66,10 +66,15 @@ app.on('window-all-closed', function () {
 const {ipcMain} = require('electron')
 let download_path
 let savefile_path
+let original_name
 ipcMain.on('to_download', (event, args) => {
     var path_arr = args.split(",");
     download_path = path_arr[0];
     savefile_path = path_arr[1];
+    original_name = path_arr[2];
+    console.log(download_path);
+    console.log(savefile_path);
+    console.log(original_name);
     mainWindow.webContents.downloadURL(download_path);  //call the 'will-download' event
 })
 
