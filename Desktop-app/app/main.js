@@ -92,3 +92,18 @@ ipcMain.on('open-directory-dialog', function (event) {
     if (res) event.sender.send('select_directory', res);
 })
 })
+
+ipcMain.on('open-file-dialog', function (event) {
+  let startPath = ''
+  if (process.platform === 'darwin') {
+    startPath = '/Users/<username>/Documents/'
+  }
+  dialog.showOpenDialog({
+    title: 'Select a workspace...',
+    properties: ['openFile'],
+    defaultPath: startPath,
+    buttonLabel: "Select...",
+  }, function (files) {
+    if (files) event.sender.send('selectedItem', files)
+  })
+})

@@ -23,24 +23,21 @@
         <div id="main">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; File Sync</span>
             <div>
-                    <h2 id = "welcome"> </h2>
+                <h2 id = "welcome"> </h2>
             </div>
 
             <div>
-            <button onclick="getAllFile()">getAllFile</button>
-            </div>
-
-            <button onclick="upload()">upload</button>
-            <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
-            <span>Saved at->    </span><span id="selected_directory"></span>
-            
-            <div id="filelist">
+                <button onclick="getAllFile()">getAllFile</button> <br><br>
                
-            </div>
-           
-    
-          
+                <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
+                <span>Saved at->    </span><span id="selected_directory"></span> <br><br>
 
+                <button onclick="singleupload()">upload</button>
+                <button id="choose_upload_file">choose_upload_file</button><br><br>
+                <span>Upload File->    </span><span id="selected_file"></span> <br><br>
+            </div>
+                        
+            <div id="filelist"></div>
         </div>
        
     </body>
