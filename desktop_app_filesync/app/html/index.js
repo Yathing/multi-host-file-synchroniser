@@ -64,7 +64,19 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-    
+ 
+
+function fileExsit(){
+    var fs=require("fs");
+fs.exists("C:/Users/fuyx0/Desktop/hello.txt",function(exists){
+  if(exists){
+     console.log("文件存在")
+  }
+     if(!exists){
+        console.log("文件不存在")
+     }
+  })
+}
 
 
 function singleupload(){
@@ -80,15 +92,15 @@ function singleupload(){
             'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
         formData: 
         { singlefile: 
-            { value: 'fs.createReadStream("C:\Users/fuyx0/Desktop/hello.txt")',
+            { value: 'fs.createReadStream("C:/Users/fuyx0/Desktop/hello.txt")',
                 options: 
-                { filename: '/Users/fuyx0/Desktop/hello.txt',
+                { filename: 'C:/Users/fuyx0/Desktop/hello.txt',
                 contentType: null } } } };
 
         request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-
-        console.log(body);
+            if (error) throw new Error(error);
+            console.log(response);
+            console.log(body);
         });
 }
 
@@ -136,7 +148,7 @@ function getAllFile(){
     request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
-    //console.log(body);
+    console.log(body);
     var obj = JSON.parse(body)
     console.log(obj[1]);
     console.log(obj[1].size);
@@ -219,16 +231,17 @@ function downloadByID(){
    
 
     var options = { method: 'GET',
-    url: 'http://46.101.20.26:3001/download/1',
-    headers: 
-    { 'Postman-Token': 'a1d64c04-8ff6-439e-ae63-5a9c93b216ab',
-        'cache-control': 'no-cache',
-        'Content-Type': 'application/json' } };
+        url: 'http://46.101.20.26:3001/download/1',
+        headers: 
+        { 'Postman-Token': 'a1d64c04-8ff6-439e-ae63-5a9c93b216ab',
+            'cache-control': 'no-cache',
+            'Content-Type': 'application/json' } 
+    };
 
     request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    alert("test dl1");
-    console.log(body);
+        if (error) throw new Error(error);
+        //alert("test dl1");
+        console.log(body);
 
     });
 }
