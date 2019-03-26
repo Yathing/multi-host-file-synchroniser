@@ -106,16 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void uploadbut(View view) {
-        String url = targeturl.getText().toString();
+        //String url = targeturl.getText().toString();
+        String url = "http://46.101.20.26:80/UploadSingle";
         File file = new File(filepath);
-        System.out.println(file.exists());
-        System.out.println(file.getName());
         loading.setVisibility(View.VISIBLE);
 
 
         AndroidNetworking.upload(url)
                 .addMultipartFile("image", file)
-                .addMultipartParameter("id", "cat")
+                .addMultipartParameter("id", "11")
                 .addMultipartParameter("username", "john")
                 .setTag("uploadTest")
                 .setPriority(Priority.HIGH)
@@ -123,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 .setUploadProgressListener(new UploadProgressListener() {
                     @Override
                     public void onProgress(long bytesUploaded, long totalBytes) {
-                        System.out.println(bytesUploaded);
                         double up = (double) bytesUploaded;
                         double total = (double) totalBytes;
                         double percent = up / total;

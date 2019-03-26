@@ -42,6 +42,7 @@ dependencies {
     implementation 'com.github.bmelnychuk:atv:1.2.+'
     implementation 'com.github.hedzr:android-file-chooser:master-SNAPSHOT'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 
 }

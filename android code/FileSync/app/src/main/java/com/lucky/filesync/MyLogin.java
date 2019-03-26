@@ -95,7 +95,7 @@ public class MyLogin extends AppCompatActivity {
                                 Ed.putString("Username",username.getText().toString() );
                                 Ed.putString("Password",password.getText().toString());
                                 Ed.apply();
-                                Intent i = new Intent(MyLogin.this, MainActivity.class);
+                                Intent i = new Intent(MyLogin.this, FileActivity.class);
                                 startActivity(i);
                             }else{
                                 String msg = response.get("msg").toString();
