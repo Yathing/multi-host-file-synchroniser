@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>File sync</title>
         <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="index.js"></script>
         <style>
         </style>
@@ -30,16 +31,26 @@
                 <button onclick="getAllFile()">getAllFile</button> <br><br>
                
                 <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
-                <span>Saved at->    </span><span id="selected_directory"></span> <br><br>
+                <span>Saved at->    </span><span id="selected_directory"></span> 
+                <i id="canceldir" onclick="cancelchoice('selected_directory')" class="material-icons">cancel</i>
+                <br><br>
 
                 <button onclick="singleupload()">upload</button>
                 <button id="choose_upload_file">choose_upload_file</button><br><br>
-                <span>Upload File->    </span><span id="selected_file"></span> <br><br>
+                <span>Upload File->    </span><span id="selected_file"></span>
+                <i id="cancelfile" onclick="cancelchoice('selected_file')" class="material-icons">cancel</i> <br><br>
             </div>
                         
             <div id="filelist"></div>
         </div>
-       
+       <script>
+           function cancelchoice(node_id){
+               document.getElementById(node_id).innerHTML="";
+           }
+       </script>
+
+
+
     </body>
 
 </html>

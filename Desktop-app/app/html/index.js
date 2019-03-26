@@ -45,10 +45,12 @@ window.onload = function() {
         user = localStorage.getItem("user");  
         document.getElementById("welcome").innerHTML="Hello "+ user;
 
+    // ipcRenderer: open dialog, choice directory
     document.getElementById('choose_download_saved_path').addEventListener('click', function (event) {
         ipcRenderer.send('open-directory-dialog')
     })
 
+    // ipc: open dialog, choice file
     const ipc = require('electron').ipcRenderer
     document.getElementById('choose_upload_file').addEventListener('click', function (event) {
         ipc.send('open-file-dialog')
@@ -68,19 +70,21 @@ function logout(){
     window.location.href='page_login.html';
 }
 
-
+//open sidebar
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
-/*关闭侧栏，恢复原始侧栏宽度，主体左跨度、背景透明度*/
+
+//hide sidebar
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-    
+ 
+//upload the file user choose
 function singleupload(){
     var fs = require("fs");
     var request = require("request");
@@ -167,7 +171,7 @@ function multiupload(){
 
 
 
-//get file list
+//get file list, show in table
 function getAllFile(){
     var request = require("request");
 
@@ -190,6 +194,7 @@ function getAllFile(){
     });
 }
 
+//create file table
 function showTable(obj){
     var list =  document.getElementById("filelist");
     if(document.getElementById("node_table")){
@@ -199,8 +204,8 @@ function showTable(obj){
     var node_table = document.createElement("table");
     node_table.id="node_table";
     
+    //table head
     var tr1 = document.createElement("tr");
-
     var th1 = document.createElement("th");
     th1.appendChild(document.createTextNode("file name"));
     tr1.appendChild(th1);
@@ -219,6 +224,7 @@ function showTable(obj){
     
     node_table.appendChild(tr1);
 
+    //table body
     for(var i=0;i<obj.length;i++){
         
 
@@ -234,10 +240,16 @@ function showTable(obj){
         comtime = new Date(obj[i].meta.created).toLocaleString()
         node3.appendChild(document.createTextNode(comtime));
 
-        var node4=document.createElement("button");
+
+        //<i id="canceldir" onclick="cancelchoice('selected_directory')" class="material-icons">
+        var node4=document.createElement("i");
         node4.id = obj[i].$loki;
+        node4.classList.add("material-icons")
+        node4.style.verticalAlign="middle"
+        node4.style.paddingLeft="20px"
         //alert("node id "+i+" = "+node4.id);
         
+        //each file has a download button
         node4.onclick=function()
         {
             //console.log(this.id);
@@ -264,7 +276,7 @@ function showTable(obj){
         //node4.onclick = download();
 
 
-        node4.appendChild(document.createTextNode("download"));
+        node4.appendChild(document.createTextNode("cloud_download"));
         
         node_tr.appendChild(node1);
         node_tr.appendChild(node2);
@@ -281,7 +293,7 @@ function DBID(fileID){
 }
 
 
-//下载id为1的文件
+//download file which loki=1
 function downloadByID(){
     var request = require("request");
    
