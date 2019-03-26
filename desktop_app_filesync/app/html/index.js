@@ -14,19 +14,20 @@ function upload() {
 }
 
 
-function download() {
+function download(loki, type, original_name) {
     var downloadsaved_path = document.getElementById('selected_directory').innerHTML;
     var new_downloadsaved_path ="";
+    console.log(original_name);
     if (downloadsaved_path != "") {
         var savedpath_arr = downloadsaved_path.split("\\");
         for (var i = 0; i < savedpath_arr.length; i++) {  //e.g. D:\1\a -> D:\\1\\a\\
             new_downloadsaved_path += savedpath_arr[i];
             new_downloadsaved_path += '\\';
         }
-        var downloadURL = "http://img.ivsky.com/img/bizhi/pre/201710/23/youbaojiding-009.jpg";  //set by user
-        console.log(new_downloadsaved_path)
-        console.log(downloadURL)
-        ipcRenderer.send('to_download', downloadURL + "," + new_downloadsaved_path)
+        var downloadURL = "http://46.101.20.26:3001/download/" + loki + type;
+        //console.log(new_downloadsaved_path)
+        //console.log(downloadURL)
+        ipcRenderer.send('to_download', downloadURL + "," + new_downloadsaved_path + "," + original_name)
     }
     else {
         download_saved_path.value = "Please choose a path";
@@ -192,10 +193,27 @@ function showTable(obj){
         var node4=document.createElement("button");
         node4.id = obj[i].$loki;
         //alert("node id "+i+" = "+node4.id);
+        
         node4.onclick=function()
         {
-            DBID(this.id);
+            //console.log(this.id);
+            var file_name = obj[this.id - 1].originalname;
+            var find_extension;
+            for (var k_tmp = file_name.length - 1; k_tmp > 0; k_tmp--) {
+                if (file_name[k_tmp] == '.') {
+                    find_extension = k_tmp;
+                    break;
+                }
+            }
+            var file_type = file_name.substring(find_extension, file_name.length);
+            //console.log(find_extension);
+            //console.log(file_type);
+
+            download(this.id, file_type, file_name);
         }
+        //node4.onclick = download();
+
+
         node4.appendChild(document.createTextNode("download"));
         
         node_tr.appendChild(node1);
