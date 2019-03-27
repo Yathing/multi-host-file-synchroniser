@@ -76,7 +76,7 @@ ipcMain.on('to_download', (event, args) => {
     console.log(savefile_path);
     console.log(original_name);
     mainWindow.webContents.downloadURL(download_path);  //call the 'will-download' event
-    alert("download successfully")
+    //alert("download successfully")
 })
 
 ipcMain.on('open-directory-dialog', function (event) {

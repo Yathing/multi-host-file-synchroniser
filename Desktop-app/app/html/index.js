@@ -42,8 +42,12 @@ function download(loki, type, original_name) {
 
 //prevent from executing the script before the page fully loads.
 window.onload = function() {
+        getAllFile();
         user = localStorage.getItem("user");  
-        document.getElementById("welcome").innerHTML="Hello "+ user;
+        if(document.getElementById("welcome")){
+            document.getElementById("welcome").innerHTML="Hello "+ user;
+        }
+       
 
     // ipcRenderer: open dialog, choice directory
     document.getElementById('choose_download_saved_path').addEventListener('click', function (event) {
@@ -165,6 +169,7 @@ function singleupload(){
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
         console.log(body);
+        getAllFile();
         alert("upload successfully,please check the new file list")
     });
 }
