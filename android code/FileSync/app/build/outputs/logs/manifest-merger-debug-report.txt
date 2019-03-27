@@ -1,0 +1,224 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+MERGED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:2:1-18:12
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-networking-1.0.2.aar\3f3c245a36e7383f70a7be4759bb43fe\AndroidManifest.xml:18:1-27:12
+MERGED from [com.google.android.material:material:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\material-1.0.0-beta01.aar\2373ae739cc37bb0f95ea86c99ee221d\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\685911835740c6ffdb8f067db4049329\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\078da4ed8c875c7588c96b11a1d4faf9\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8bbc4e9d85016a63743189a61c608f92\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\transition-1.0.0-beta01.aar\8a724abb98c979cfec725d1585edd21e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0-beta01.aar\dc3820bdc3577b311a00d0ebdfff458e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\930f1882632d41cecb518fde0189528f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\a414224907f5ae516ce2b3dad3119bf6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\2e0f2713da9e5c4cf55ca4004de0e20a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\99dc8ae92a735921cbfbc9ae11388250\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\1de22bb0d1e47088810808f325d075bb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\2575136f84cb99e31f509bdf30e8cdfa\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\882a6ba9cd773bc258401560b1d7eda7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\46cd561ff5db3e3173c8f9a15ac325ee\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\add1b0f541c016361559ed69fe3fc657\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\d7daac63bcca681c5e67ebcb44913ea0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\69a6ceeff08f5b61a17fe08cbde54b47\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\d54b4898691eecf87b6d986f59519cd2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\0c26d29109054bfb17a9afc18a770bb3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\5be64eaa29383b45863f238488dc1bc5\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f4e544d0ab3e5f3294a17685b499712a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\40c0a2e7bbca0b7f34369aabcea781af\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\0cf93a1205c195d22f4666502b014983\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a8a654c9058ec2513624678361da9839\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fd513c8d79eb67d1ad588fe56a39706b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\79f04e7b4e68629b189145d53610d4ea\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\0f087ee2f966e7679c2cc377a40ac798\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\2df90963a2ef4fc7a37b15df785fb8a4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\3a69df9d19349dcfec20b394a0355257\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\bbe75eac6c7df913a51072a75d8ec7ab\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+	package
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:1-35:12
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:5:5-71
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:5:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:6:5-71
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:6:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:7:5-72
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:7:22-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:8:5-80
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:8:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:10:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:11:22-76
+application
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:14:5-33:19
+MERGED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:11:5-16:19
+MERGED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:11:5-16:19
+MERGED from [com.google.android.material:material:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\material-1.0.0-beta01.aar\2373ae739cc37bb0f95ea86c99ee221d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\material-1.0.0-beta01.aar\2373ae739cc37bb0f95ea86c99ee221d\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\078da4ed8c875c7588c96b11a1d4faf9\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\078da4ed8c875c7588c96b11a1d4faf9\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\5be64eaa29383b45863f238488dc1bc5\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\5be64eaa29383b45863f238488dc1bc5\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:19:9-35
+	android:label
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:17:9-41
+	android:roundIcon
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:18:9-54
+	android:icon
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:16:9-43
+	android:allowBackup
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:15:9-35
+	android:theme
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:20:9-40
+activity#com.lucky.filesync.FileActivity
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:21:9-59
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:21:19-47
+activity#com.lucky.filesync.MyRegister
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:22:9-57
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:22:19-45
+activity#com.lucky.filesync.MyLogin
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:23:9-29:20
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:23:19-42
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:24:13-28:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:25:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:27:27-74
+activity#com.lucky.filesync.MainActivity
+ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:30:9-59
+	android:name
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml:30:19-47
+uses-sdk
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+MERGED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:7:5-9:41
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-networking-1.0.2.aar\3f3c245a36e7383f70a7be4759bb43fe\AndroidManifest.xml:23:5-25:41
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-networking-1.0.2.aar\3f3c245a36e7383f70a7be4759bb43fe\AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android.material:material:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\material-1.0.0-beta01.aar\2373ae739cc37bb0f95ea86c99ee221d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\material-1.0.0-beta01.aar\2373ae739cc37bb0f95ea86c99ee221d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\685911835740c6ffdb8f067db4049329\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\685911835740c6ffdb8f067db4049329\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\078da4ed8c875c7588c96b11a1d4faf9\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.2] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.2.aar\078da4ed8c875c7588c96b11a1d4faf9\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8bbc4e9d85016a63743189a61c608f92\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\8bbc4e9d85016a63743189a61c608f92\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\transition-1.0.0-beta01.aar\8a724abb98c979cfec725d1585edd21e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\transition-1.0.0-beta01.aar\8a724abb98c979cfec725d1585edd21e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0-beta01.aar\dc3820bdc3577b311a00d0ebdfff458e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0-beta01] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0-beta01.aar\dc3820bdc3577b311a00d0ebdfff458e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\930f1882632d41cecb518fde0189528f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\930f1882632d41cecb518fde0189528f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\a414224907f5ae516ce2b3dad3119bf6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\a414224907f5ae516ce2b3dad3119bf6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\2e0f2713da9e5c4cf55ca4004de0e20a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\2e0f2713da9e5c4cf55ca4004de0e20a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\99dc8ae92a735921cbfbc9ae11388250\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\99dc8ae92a735921cbfbc9ae11388250\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\1de22bb0d1e47088810808f325d075bb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\1de22bb0d1e47088810808f325d075bb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\2575136f84cb99e31f509bdf30e8cdfa\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\2575136f84cb99e31f509bdf30e8cdfa\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\882a6ba9cd773bc258401560b1d7eda7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\882a6ba9cd773bc258401560b1d7eda7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\46cd561ff5db3e3173c8f9a15ac325ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\46cd561ff5db3e3173c8f9a15ac325ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\add1b0f541c016361559ed69fe3fc657\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\add1b0f541c016361559ed69fe3fc657\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\d7daac63bcca681c5e67ebcb44913ea0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\d7daac63bcca681c5e67ebcb44913ea0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\69a6ceeff08f5b61a17fe08cbde54b47\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\69a6ceeff08f5b61a17fe08cbde54b47\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\d54b4898691eecf87b6d986f59519cd2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\d54b4898691eecf87b6d986f59519cd2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\0c26d29109054bfb17a9afc18a770bb3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\0c26d29109054bfb17a9afc18a770bb3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-1.0.0.aar\045788b273fd73b3d792982aac198b6b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\5be64eaa29383b45863f238488dc1bc5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\5be64eaa29383b45863f238488dc1bc5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f4e544d0ab3e5f3294a17685b499712a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\f4e544d0ab3e5f3294a17685b499712a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\40c0a2e7bbca0b7f34369aabcea781af\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\40c0a2e7bbca0b7f34369aabcea781af\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\0cf93a1205c195d22f4666502b014983\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\0cf93a1205c195d22f4666502b014983\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a8a654c9058ec2513624678361da9839\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a8a654c9058ec2513624678361da9839\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fd513c8d79eb67d1ad588fe56a39706b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\fd513c8d79eb67d1ad588fe56a39706b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\79f04e7b4e68629b189145d53610d4ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\79f04e7b4e68629b189145d53610d4ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\0f087ee2f966e7679c2cc377a40ac798\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\0f087ee2f966e7679c2cc377a40ac798\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\2df90963a2ef4fc7a37b15df785fb8a4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\2df90963a2ef4fc7a37b15df785fb8a4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\3a69df9d19349dcfec20b394a0355257\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\3a69df9d19349dcfec20b394a0355257\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\bbe75eac6c7df913a51072a75d8ec7ab\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\bbe75eac6c7df913a51072a75d8ec7ab\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Marci\Desktop\Android\FileSync\app\src\main\AndroidManifest.xml
+activity#com.obsez.android.lib.filechooser.permissions.PermissionActivity
+ADDED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:12:9-15:56
+	android:label
+		ADDED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:14:13-29
+	android:theme
+		ADDED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:15:13-53
+	android:name
+		ADDED from [com.github.hedzr:android-file-chooser:master-SNAPSHOT] C:\Users\Marci\.gradle\caches\transforms-1\files-1.1\jetified-android-file-chooser-master-SNAPSHOT.aar\6b3709b45ad2f1cb5d3594ce67f35206\AndroidManifest.xml:13:13-92

@@ -1,12 +1,5 @@
 package com.lucky.filesync;
 
-import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,31 +11,20 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.androidnetworking.interfaces.OkHttpResponseAndStringRequestListener;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.security.cert.CertificateException;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MyRegister extends AppCompatActivity {
 
-    Button register;
-    TextView name;
-    TextView username;
-    TextView password;
-    TextView email;
+    private Button register;
+    private TextView name;
+    private TextView username;
+    private TextView password;
+    private TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +41,9 @@ public class MyRegister extends AppCompatActivity {
 
 
     public void doRegister(View view) {
-        if (name.getText().toString().length()<2 || username.getText().toString().length()<2 || password.getText().toString().length()<2 || email.getText().toString().length()<2 || !email.getText().toString().contains("@") ){
-            Toast.makeText(MyRegister.this, "Details are incorrect" , Toast.LENGTH_SHORT).show();
-        }else {
+        if (name.getText().toString().length() < 2 || username.getText().toString().length() < 2 || password.getText().toString().length() < 2 || email.getText().toString().length() < 2 || !email.getText().toString().contains("@")) {
+            Toast.makeText(MyRegister.this, "Details are incorrect", Toast.LENGTH_SHORT).show();
+        } else {
 
             JSONObject obj = new JSONObject();
 
@@ -83,11 +65,11 @@ public class MyRegister extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                if ((boolean) response.get("success")){
+                                if ((boolean) response.get("success")) {
                                     SharedPreferences sp = getSharedPreferences("FileSync", 0);
-                                    SharedPreferences.Editor Ed=sp.edit();
-                                    Ed.putString("Username",username.getText().toString() );
-                                    Ed.putString("Password",password.getText().toString());
+                                    SharedPreferences.Editor Ed = sp.edit();
+                                    Ed.putString("Username", username.getText().toString());
+                                    Ed.putString("Password", password.getText().toString());
                                     Ed.apply();
                                     Intent i = new Intent(MyRegister.this, FileActivity.class);
                                     startActivity(i);
@@ -96,6 +78,7 @@ public class MyRegister extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
+
                         @Override
                         public void onError(ANError error) {
                             System.out.println(error);
