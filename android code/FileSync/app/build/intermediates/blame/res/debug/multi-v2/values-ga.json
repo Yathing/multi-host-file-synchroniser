@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Marci\\Desktop\\Android\\FileSync\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ga\\values-ga.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Marci\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-android-file-chooser-master-SNAPSHOT.aar\\6b3709b45ad2f1cb5d3594ce67f35206\\res\\values-ga\\values-ga.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,112,175,266",
+                        "endColumns": "56,62,90,91",
+                        "endOffsets": "107,170,261,353"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/parent_layout">
-
 
 
     <ImageView
@@ -12,7 +12,8 @@
         android:layout_width="51dp"
         android:layout_height="51dp"
         android:layout_marginLeft="20dp"
-        app:srcCompat="@android:drawable/sym_contact_card" />
+        android:layout_marginTop="3dp"
+        android:src="@drawable/ic_description_black_48dp" />
 
     <TextView
         android:id="@+id/filename"
@@ -22,6 +23,8 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/imageView"
         android:text="TextView"
+        android:textColor="@color/purple"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="20dp" />
 
 
@@ -33,6 +36,8 @@
         android:layout_marginLeft="23dp"
         android:layout_marginTop="-1dp"
         android:layout_toRightOf="@+id/imageView"
+        android:textColor="@color/purple"
+        android:fontFamily="sans-serif-condensed"
         android:text="date"
         android:textSize="15dp" />
 
@@ -44,6 +49,8 @@
         android:layout_marginLeft="23dp"
         android:layout_marginTop="-1dp"
         android:layout_toRightOf="@+id/date"
+        android:textColor="@color/purple"
+        android:fontFamily="sans-serif-condensed"
         android:text="size"
         android:textSize="15dp" />
 

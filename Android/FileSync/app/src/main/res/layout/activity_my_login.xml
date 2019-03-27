@@ -28,13 +28,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:onClick="doLogin"/>
+        android:onClick="doLogin"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        />
 
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="goRegister"
-        android:text="Go Register" />
+        android:text="Go Register"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        />
 
 </LinearLayout>
