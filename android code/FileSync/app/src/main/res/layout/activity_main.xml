@@ -10,6 +10,7 @@
 
 
     <Button
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,18 +21,18 @@
         android:id="@+id/selected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="File not yet Selected"
+        android:textColor="@android:color/black"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="30dp"
+        android:textAlignment="center"/>
 
 
-    <EditText
-        android:id="@+id/targeturl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="http://ptsv2.com/t/u8sbz-1552759556/post" />
+
 
     <Button
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:id="@+id/uploadbut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,6 +40,7 @@
         android:text="Upload" />
 
     <TextView
+
         android:id="@+id/loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,6 +49,8 @@
         android:textAlignment="center"/>
 
     <Button
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+
         android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

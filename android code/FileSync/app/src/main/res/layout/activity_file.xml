@@ -7,10 +7,20 @@
     tools:context=".FileActivity"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/reload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh Data"
+        android:onClick="doRefresh"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="395dp"
-        android:layout_height="445dp"
+        android:layout_height="413dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -29,6 +39,8 @@
         android:textAlignment="center"/>
 
     <Button
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:id="@+id/upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
