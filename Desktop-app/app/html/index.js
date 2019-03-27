@@ -85,7 +85,7 @@ function closeNav() {
 }
  
 //upload the file user choose
-function singleupload(){
+/*function singleupload(){
     var fs = require("fs");
     var request = require("request");
 
@@ -115,32 +115,59 @@ function singleupload(){
         console.log(body);
     });
 
-}
-
-/*function singleupload(){
-        var fs = require("fs");
-        var request = require("request");
-
-        var options = { method: 'POST',
-        url: 'http://46.101.20.26:3001/UploadSingle',
-        headers: 
-        { 'Postman-Token': 'cdc14b46-b63b-41c4-8a6f-00370edbdd89',
-            'cache-control': 'no-cache',
-            'Content-Type': 'application/json',
-            'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
-        formData: 
-        { singlefile: 
-            { value: fs.createReadStream("C:/Users/fuyx0/Desktop/hello.txt"),
-                options: 
-                { filename: 'C:/Users/fuyx0/Desktop/hello.txt',
-                contentType: null } } } };
-
-        request(options, function (error, response, body) {
-            if (error) throw new Error(error);
-
-            console.log(body);
-        });
 }*/
+
+function singleupload(){
+    var fs = require("fs");
+    var request = require("request");
+
+    //user must choice file before they click upload
+    var upload_file_path = document.getElementById('selected_file').innerHTML.toString();
+    var FN = upload_file_path.split('\\');
+    var FN1 = FN[FN.length-1];
+    if(upload_file_path==""){
+        alert("please choice file");
+        return;
+    }
+
+    //getAllFile();
+    
+    var filelist = document.getElementById("node_table");
+    if(filelist){
+        var rows = filelist.rows.length;
+        //alert(rows);
+    }else{
+        alert("please get new filelist")
+        return;
+    }
+
+    for(var j=1;j<rows;j++){
+        if(FN1 == filelist.rows[j].cells[0].innerHTML){
+            alert("Upload Fail! you need to rename the upload file");
+            return;
+        }    
+    }
+
+    var options = { method: 'POST',
+    url: 'http://46.101.20.26:3003/UploadSingle',
+    headers: 
+    { 'Postman-Token': '000b2e9a-5248-4bdd-b773-fce4466fcc2b',
+        'cache-control': 'no-cache',
+        'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
+    formData: 
+    { singlefile: 
+        { value: fs.createReadStream(upload_file_path),
+            options: 
+            { //filename: '/Users/tianning/Downloads/Keeny骑着西瓜去旅行.mssf',
+            filename: upload_file_path,
+            contentType: null } } } };
+
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        console.log(body);
+        alert("upload successfully,please check the new file list")
+    });
+}
 
 
 
@@ -172,7 +199,7 @@ function multiupload(){
 
 
 //get file list, show in table
-function getAllFile(){
+/*function getAllFile(){
     var request = require("request");
 
     var options = { method: 'GET',
@@ -187,12 +214,32 @@ function getAllFile(){
 
     //console.log(body);
     var obj = JSON.parse(body)
-    /*console.log(obj[1]);
-    console.log(obj[1].size);
-    console.log(obj[1].meta.created);*/
+    //console.log(obj[1]);
+    //console.log(obj[1].size);
+    //console.log(obj[1].meta.created);
+    showTable(obj); 
+    });
+}*/
+
+
+function getAllFile(){
+    var request = require("request");
+
+    var options = { method: 'GET',
+    url: 'http://46.101.20.26:3003/Files',
+    headers: 
+    { 'Postman-Token': '89e09447-3fd2-4c6a-bac1-09804754eb5f',
+        'cache-control': 'no-cache' } };
+
+    request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+
+    //console.log(body);
+    var obj = JSON.parse(body)
     showTable(obj); 
     });
 }
+
 
 //create file table
 function showTable(obj){
