@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>File sync</title>
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="index.js"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+              
+        <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="./index.html">MainPage</a>
+                <a href="./sync.html">File</a>
+                <a href="#">Contact Us</a>
+                <a onclick="return logout()">Logout</a> <br><br>
+
+                <img src="./icon.png" width="250px" height="250px">
+        </div>
+               
+        <div id="main">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; File Sync</span>
+            
+            <div>
+                    <h2 id = "welcome"> </h2>
+            </div>
+
+        </div>
+
+        <div>
+                <button onclick="singleupload()">upload</button>
+                <button onclick="download()">download</button>
+                <button id="choose_download_saved_path">choose_download_saved_path</button><br><br>
+                <span>Saved at->    </span><span id="selected_directory"></span>
+              
+        </div>
+       
+    </body>
+
+</html>

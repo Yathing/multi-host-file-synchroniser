@@ -10,19 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth' ])->group(function () {
-    
-    Route::get('/', 'ToDoController@index');
 
-    Route::post('/store','ToDoController@store')->name('store');
-    Route::get('/edit/{id}','ToDoController@edit')->name('edit');
-    Route::post('/update/{id}','ToDoController@update')->name('update');
-    Route::get('/delete/{id}','ToDoController@delete')->name('delete');
-
+Route::get('/', function () {
+    return view('home');
 });
-
-
-
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home'); //??? difference betwwen first one and second one
+
+Route::resource('files', 'FileController');
+
+Route::resource('folders','FolderController');
+
+Route::post('file/upload', 'FileController@store')->name('file.upload');
+
+Route::post('upload', 'FileController@upload')->name('upload');
+
+//2019-2-28
+Route::get('file/download/{id}', 'FileController@download')->name('file.download');
+
+//2019-3-1
+Route::post('files/update/{id}', 'FileController@update')->name('files.update');

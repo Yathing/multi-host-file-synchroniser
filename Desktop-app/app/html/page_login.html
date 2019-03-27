@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>File Synchronize</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-login">
+        <div id="title">
+            <i class="material-icons">lock</i> Login
+        </div>
+
+        <form>
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remb_me">
+                <span style="color: #DDD">Remember Me</span>
+            </div>
+
+            <input type="button" name="" value="Log In" onclick="return login()">
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+        </div>
+        <div class="privacy">
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="register">
+            Don't have an account yet?
+            <a href="#"><button id="register-link" onclick="return register()">Register here</button></a>
+        </div>
+    </div>
+   
+
+
+
+
+    <script>
+      
+      var storage = window.localStorage;
+    
+      if("yes" == storage["isstorename"]){
+          document.getElementById("remb_me").checked= true;
+          document.getElementById("username").value = storage["loginname"];
+          document.getElementById("password").value = storage["loginpwd"];         
+      }
+     
+
+      function remember(){
+          //判断是否保存用户名
+          var storage = window.localStorage;
+          var box = document.getElementById("remb_me");
+          //alert("box choic is "+box.check);
+          if(box.checked==true){
+              //存储到loaclStage
+              storage["loginname"] =document.getElementById("username").value;
+              storage["loginpwd"] = document.getElementById("password").value;
+              storage["isstorename"] =  "yes"; 
+          }else{
+              storage["loginphone"] = "";
+              storage["loginname"] = "";
+              storage["isstorename"] =  "no"; 
+          }
+
+
+      }
+      //request login
+      // call by login()
+      function check(user, pwd){
+               
+          var request = require("request");
+
+          var options = { method: 'POST',
+          url: 'http://46.101.20.26:3000/users/authenticate',
+          headers: 
+          { 'Postman-Token': '6b5fbf61-7a24-475d-b01b-d66969e107dd',
+            'cache-control': 'no-cache',
+            'Content-Type': 'application/json' },
+          body: 
+          { username: user,
+            password: pwd },
+          json: true };
+
+          request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body);
+            //alert("test1"+body.success);
+            if(body.success==false) {
+              alert("log in error");
+            }
+            else if(body.success==true){
+              alert("log in successfullt, jump to main page");
+              
+              remember();
+
+              localStorage.setItem("user", user);
+              window.location.href='index.html';
+            }            
+          });
+      }
+
+      function login(){
+        var user = document.getElementById("username").value;
+        var pwd = document.getElementById("password").value;
+         //alert("login: "+user +" "+ pwd)
+
+          if (user == "" || pwd == ""){
+            alert("username and password cannot be null");
+          }
+          else{
+              check(user,pwd);
+          }     
+      }
+
+      //页面跳转
+      function register(){
+          window.location.href='page_register.html';
+      }
+    
+     
+    </script>
+  </body>
+</html>

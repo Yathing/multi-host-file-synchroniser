@@ -1,0 +1,140 @@
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>File Synchronize</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="page-register">
+      <div id="title">
+          <i class="material-icons lock">lock</i> Register
+      </div>
+
+      <form>
+          <div class="input">
+              <div class="input-addon">
+                  <i class="material-icons">email</i>
+              </div>
+              <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="input">
+              <div class="input-addon">
+                  <i class="material-icons">face</i>
+              </div>
+              <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="input">
+              <div class="input-addon">
+                  <i class="material-icons">vpn_key</i>
+              </div>
+              <input id="pwd1" placeholder="Password" type="password" required class="validate" autocomplete="off">
+          </div>
+
+          <div class="remember-me">
+              <input type="checkbox">
+              <span style="color: #DDD">I accept Terms of Service</span>
+          </div>
+
+          <input type="button" name="" value="Register" onclick="return register()">
+
+      </form>
+
+      <div class="privacy">
+          <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="register">
+          Do you already have an account?
+          <a href="#"><button id="register-link" onclick="return cancel()">Log In here</button></a>
+      </div>
+  </div>
+   
+    <script>
+    
+        //testing only
+        function test(){
+
+            alert("start");
+            require('./reg.js');
+            alert("end");
+        }
+
+        //request register
+        //call by register()
+        function check(user,email,pwd){
+            alert(email+" "+user+" "+ pwd);
+
+            var request = require("request");
+            var options = { method: 'POST',
+            url: 'http://46.101.20.26:3000/users/register',
+            headers: 
+            { 'Postman-Token': '6b5fbf61-7a24-475d-b01b-d66969e107dd',
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json' },
+            body: 
+            { name: user,
+                email: email,
+                username: user,
+                password: pwd },
+            json: true };
+
+            request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+
+            console.log(body);
+            alert("value= "+ body.success);
+            if(body.success==false){
+                alert("Register fail: " + body.msg);
+            } 
+            else if(body.success==true){
+                alert("Register successfully. Please return to log in.")
+                window.location.href='page_login.html';
+            }
+            });
+
+        }
+
+        function register(){
+            var user = document.getElementById("username").value;
+            var mail = document.getElementById("email").value;
+            var pwd1 = document.getElementById("pwd1").value;
+                    
+            if (user == "" || pwd1 == ""|| mail == "") {
+                        alert("input cannot be null");
+                        return false;
+            }
+          
+            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if(!myreg.test(mail)){
+                   alert('Invalid E_mail.');
+                  return false;
+             }
+          
+          if (pwd1.length< 6) {
+            alert("password length should not be less than 6")
+            return false;
+          }
+
+          check(user,mail,pwd1)
+        }
+
+        function cancel(){
+            window.location.href='page_login.html';
+        }
+     
+    </script>
+  </body>
+</html>

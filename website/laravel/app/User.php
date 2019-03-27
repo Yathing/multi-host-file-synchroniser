@@ -9,16 +9,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-    
-    public $timestamps = false;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','is_admin'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -30,11 +28,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function tasks()
+    public function files()
     {
-        
-        return $this->hasMany(\App\Task::class);
-        
+      return $this->hasMany(File::class);
     }
 
+    public function folders()
+    {
+      return $this->hasMany(Folder::class);
+    }
+
+    public function uploads()
+    {
+      return $this->hasMany(Upload::class);
+    }
 }
