@@ -18,6 +18,9 @@ import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity allows the user to
+ */
 public class MyRegister extends AppCompatActivity {
 
     private Button register;

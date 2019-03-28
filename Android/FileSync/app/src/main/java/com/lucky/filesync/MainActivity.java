@@ -16,10 +16,14 @@ import com.androidnetworking.interfaces.UploadProgressListener;
 import com.obsez.android.lib.filechooser.ChooserDialog;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.Response;
 
+/**
+ * This activity allows for selecting and uploading files.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout ll;
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView selected;
 
     private TextView loading;
+
+    ArrayList<String> files;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         loading = findViewById(R.id.loading);
         loading.setVisibility(View.INVISIBLE);
+
+        Intent intent = getIntent();
+        files = intent.getStringArrayListExtra("files");
+        System.out.println(files);
 
 
     }
@@ -72,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://46.101.20.26:3001/UploadSingle";
         File file = new File(filepath);
         loading.setVisibility(View.VISIBLE);
+
+        System.out.println(file.getName());
+        if (files.contains(file.getName())){
+            Toast.makeText(getApplicationContext(), "FILE CONFLICT. PLEASE RENAME FILE!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         AndroidNetworking.upload(url)
                 .addMultipartFile("singlefile", file)

@@ -21,13 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * This class facilitates the viewing of  files on the server
+ */
 public class FileActivity extends AppCompatActivity {
 
     private RecyclerView rv;
     private ArrayList<FilePojo> listFiles;
     private  RecyclerViewAdapter recyclerViewAdapter;
     private  TextView geththis;
-
 
 
     @Override
@@ -52,6 +54,9 @@ public class FileActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * fetches files for server
+     */
     private void getfiles() {
         listFiles.clear();
         AndroidNetworking.get("http://46.101.20.26:3001/Files")
@@ -86,9 +91,26 @@ public class FileActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * @param view
+     * goes to MainActivity
+     */
     public void goUpload(View view) {
         Intent i = new Intent(FileActivity.this, MainActivity.class);
+        i.putExtra("files",getNames());
         startActivity(i);
+    }
+
+    /**
+     * @return ArrayList<String> names
+     * gets names of files on server
+     */
+    public ArrayList<String> getNames(){
+        ArrayList<String> names = new ArrayList<>();
+        for (FilePojo fp: listFiles) {
+            names.add(fp.getFilename());
+        }
+        return names;
     }
 
     public void doRefresh(View view) {

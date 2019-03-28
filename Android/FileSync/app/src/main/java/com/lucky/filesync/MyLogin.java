@@ -19,6 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
+
+/**
+ * This activity handles user authentication
+ */
 public class MyLogin extends AppCompatActivity {
 
    private EditText username;
@@ -59,6 +63,10 @@ public class MyLogin extends AppCompatActivity {
     }
 
 
+    /**
+     * @param view
+     * execute login
+     */
     public void doLogin(View view) {
         JSONObject obj = new JSONObject();
 
@@ -73,11 +81,19 @@ public class MyLogin extends AppCompatActivity {
 
     }
 
+    /**
+     * @param view
+     * go to register activity
+     */
     public void goRegister(View view) {
         Intent i = new Intent(MyLogin.this, MyRegister.class);
         startActivity(i);
     }
 
+    /**
+     * @param obj
+     * log user in if details are stored
+     */
     public void autoAuth(JSONObject obj){
         AndroidNetworking.post("http://46.101.20.26:3000/users/authenticate")
                 .addJSONObjectBody(obj)

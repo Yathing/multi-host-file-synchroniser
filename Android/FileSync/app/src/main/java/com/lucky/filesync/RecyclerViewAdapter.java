@@ -13,6 +13,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,6 +64,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
        holder.name.setText(list.get(position).getFilename());
        holder.file = list.get(position);
 
+        holder.parentLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+
+                                doDelete(String.valueOf(holder.file.getKey()),position);
+
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("Delete file " + holder.file.getFilename() +"?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
+
+                return true;
+            }
+        });
+
+
        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -69,7 +110,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                String fileURL = "http://46.101.20.26:3001/download/" + holder.file.getKey();
 
                                doDownload(fileURL, holder.file.getFilename());
-
 
                                break;
 
@@ -88,6 +128,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
            }
        });
 
+    }
+
+    public void doDelete(String key, int position){
+        AndroidNetworking.delete("http://46.101.20.26:3001/delete/{pageNumber}")
+                .addPathParameter("pageNumber", key)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // do anything with response
+                        Toast.makeText(context,  "File Deleted", Toast.LENGTH_SHORT).show();
+                        list.remove(position);
+                        notifyDataSetChanged();
+                        System.out.println(list);
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        System.out.println(error);
+
+
+                    }
+                });
     }
 
 
@@ -135,8 +198,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }
     }
-
-
 
 }
 
