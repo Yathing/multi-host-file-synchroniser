@@ -11,6 +11,8 @@
 \addtolength{\topmargin}{-.875in}
 \addtolength{\textheight}{1.75in}
 \usepackage{setspace}
+\usepackage{float}
+
 
 
 
@@ -119,7 +121,7 @@ This section will outline the requirements we set out to achieve as a group and 
 The first requirement decision we made for the system was to decide how to handle what would happen should a conflict of uploads occur. This choice was made at a similar time to the next strategic decision, deciding what should happen when there was a conflict changes depending on whether there was a constant connection with the server or the manual upload method that we settled on. A conflict can be defined as what happens when two users who are working from the same version of a file locally, then proceed to make different changes to the document and then upload. If a conflict occurs we want our system to produce a pop-up that will prompt you to decide between replacing the file in the system or renaming the file with an additional identifier attached to the file name. This will work by using the ‘rsync’ algorithm, which will be further explained in the implementation section.
 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{Initial mockup of system architecture}
 \centering
 \includegraphics[width=0.6\textwidth]{Group_Project/drawing.jpg}
@@ -144,7 +146,7 @@ As we have decided to allow any document type to be uploaded to the system, ther
 One of the main features of our system, considering we aren’t using within-app editing, is the download function. A user will be able browse all the files they have uploaded and any files that have been made available to see by all the users on the system. When they find the file they want to download, they will be able to inspect the document (read the information provided by uploader), then decide if they want to continue with downloading the item. The user will then be able to decide where they want the file to be saved to. This works by using a HTTP GET request.
 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{The final design for system architecture}
 \centering
 \includegraphics[width=0.9\textwidth]{Group_Project/architecture.png}
@@ -160,11 +162,71 @@ We have designed the database to include 3 tables; User, Password, Email and Fil
 
 \section{Implementation}
 
-\subsection{Android}
+\subsection{Analyzing requirements}
+
+The project had 3 key external requirement areas that needed implementation and several pieces of functionality that had to be realised:
+
+\begin{enumerate}
+   \item External Requirements
+   \begin{itemize}
+     \item Hardware: Desktop, Mobile 
+     \item Software: This File Synchronise can be compatible with the mobile (Android app) and desktop.
+     \item Users: Users need to register their personal details such as name, email to be recorded in the database and login to access to the server for uploading, downloading, deleting files.
+   \end{itemize}
+   \item Functional Requirements
+   \begin{itemize}
+     \item Registration: A user needs to register his/her information such as username, password, email in order to access the desktop and mobile application and then the data will be stored in the database to serve as the profile information.
+     \item Login: The desktop and mobile application require the user to be registered as the first step to access the system.
+     \item Downloading File: A user can download desired files.
+     \item Deleting File: A user can delete files that the user wants.
+     \item Getting Available File List: A user can get .available file list from server side.
+     \item Uploading files to the server
+   \end{itemize}
+\end{enumerate}
+
+
+\subsection{Technical Implementation}
+
+\begin{enumerate}
+   \item Desktop Application
+   \begin{itemize}
+     \item \textbf{Electron Framework} : The desktop application of  file synchroniser system is developed by Electron and node.JS.  Electron which is based on web browser and (local) server is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Therefore, there are many advantages such as easier implementation for the MVVM pattern and UI customization and graphics, and clear separation between the UI and logic.
+   \end{itemize}
+   \item Mobile Application
+   \begin{itemize}
+     \item Fast Android Networking, Android Studio, Download Manger and android-file-chooser: The android app was developed in Android studio using several networking and file management tools. Please see section on android implementation for full details on how the app was constructed and the libraries used.
+   \end{itemize}
+   \item Server Side Development
+   \begin{itemize}
+     \item Digital Ocean Cloud Hosting to save files on licensed emote storage
+     \item loki.js: an external JavaScript database library was used to help facilite file indexing and storage (http://lokijs.org/.)
+     \item rsync-watch-app : Rsync is typically used for synchronizing files and directories between two different systems. This File Synchroniser system uses  rsync-watch-api on server side.
+     \item The upload folder will sync to SyncTo folder.
+     \item The rsync-watch-app will sync two folders from server side :  a folder from file-upload-api to another one. 
+     \item The server application will detect the differences between two folders(temporary folder  and  final folder on the server side), and then, wipe the old version.
+     \item The rsync-watch-app will sync two folders from server side :  a folder from file-upload-api to another one. 
+     \item We have three server applications : rsync-watch-app, mean-auth-api  and  file-upload-api to provide API to the mobile and desktop to activate the login/register/upload/download/getAllFile/delete.
+     \item The server uses REST calls written in node.js to handle all HTTP requests.
+     \item Databse items were stored and retrieved using MongoDB, a JavaScript library database solution.
+     \item for further details on the server side implementation please refer to code snippets.
+   \end{itemize}
+   \item Performance issues
+   \begin{itemize}
+     \item Server Operations:  Server is prone to outages, and on occassions may not respond in time.
+    \item Solution : Restarting server, We need to find further proper solution.
+    \item Conflicts between File Names
+    \item Alert Message : Uploading fail, and Confirm to rename
+   \end{itemize}
+\end{enumerate}
+
+
+Please see appendix for more detail on server side code and file structure
+  
+\subsection{Android Implementation}
 
 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{RecyclerView with files displayed, a view of the application}
 \centering
 \includegraphics[width=0.7\textwidth]{files.png}
@@ -179,7 +241,7 @@ The first step was the creation of the user interface for registration and login
 To address the communicating with the server through HTTP get and post requests the FAN: Fast Android Networking library (https://github.com/amitshekhariitbhu/Fast-Android-Networking) was added to the project. This allowed for efficient and concise calls to the server and was in most ways the best fit for the project. 
 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{Custom file uploader, replaced by DownloadManager in final product}
 \centering
 \includegraphics[width=0.8\textwidth]{downloadclass.PNG}
@@ -190,7 +252,7 @@ The application’s main functionality can be categorized into two main groups, 
 
 The other type of functionality concerns the files located on the server. To display the files the server sends the client a JSON file. This contains the list of files currently stored on the remote storage and information concerning the name, size, metadata and other aspects of the files. This JSON response is then parsed by the mobile client into custom Java objects of type FilePojo, which are then displayed in the UI RecyclerView. 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{FAN request to delete a file}
 \centering
 \includegraphics[width=0.8\textwidth]{delete.PNG}
@@ -213,6 +275,8 @@ FAN: Fast Android Networking : https://github.com/amitshekhariitbhu/Fast-Android
 	
 android-file-chooser: (https://github.com/hedzr/android-file-chooser)
 
+Please see Appendix for images of Android User Interface.
+
 
 \section{Team Work}
 
@@ -220,25 +284,25 @@ In this chapter we will be discussing how we worked as a team and what processes
 
 Another reason I think the team worked well was that if someone didn’t understand any part of the project, from GitHub to the logic of our system, someone was readily available to help the person understand what they were struggling with. This could be over Facebook Messenger or in a face to face meeting, which are two of the tools we used to facilitate group work. There were a few occasions near the start of the project in which Yixin took time out of her day to meet with people to help them to get to grips with using GitHub and multiple occasions where Zack met with members to help them understand the detailed logic of the system and help them adapt their code to suit the logic.
 
-The main tool we used for version control was a GitHub repository, as explained earlier GitHub has the best features to deal with computer code due to its ability for identifying changes in multiple user’s code and merge these into the master branch without much input from a ‘leader’ profile (Figure 2). Although there was a learning curve when starting up with GitHub, which was eased by working as a team, the whole group and the project has benefited from the features that GitHub offers over the other file sharing systems.
+The main tool we used for version control was a GitHub repository, as explained earlier GitHub has the best features to deal with computer code due to its ability for identifying changes in multiple user’s code and merge these into the master branch without much input from a ‘leader’ profile (Figure 7). Although there was a learning curve when starting up with GitHub, which was eased by working as a team, the whole group and the project has benefited from the features that GitHub offers over the other file sharing systems.
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{View of team GitHub Repository}
 \centering
 \includegraphics[width=0.8\textwidth]{figure1-1.PNG}
 \end{figure}
 
-When it came to write the final report for the project there was a shared Google Drive folder set up for people to collaborate on the word document, this was set up due to the online editing capabilities and being able to see the changes to the document in real time (Figure 3). As the original document is written in Microsoft Word, this allowed the team member converting the document into Latex to do so whenever the file was updated, another example of the team working well together. As well as having these files on Google Drive they were also on our GitHub repository.
+When it came to write the final report for the project there was a shared Google Drive folder set up for people to collaborate on the word document, this was set up due to the online editing capabilities and being able to see the changes to the document in real time (Figure 8). As the original document is written in Microsoft Word, this allowed the team member converting the document into Latex to do so whenever the file was updated, another example of the team working well together. As well as having these files on Google Drive they were also on our GitHub repository.
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{View of team Google Drive folders}
 \centering
 \includegraphics[width=1.0\textwidth]{figure2.PNG}
 \end{figure}
 
-Another tool used was Facebook Messenger, this was used for asking questions, updating team members of progress, requesting help, etc. A useful tool in Facebook messenger is the polling feature, this was used on multiple occasions, in the example it is being used to decide on a day for a meeting (Figure 4). 
+Another tool used was Facebook Messenger, this was used for asking questions, updating team members of progress, requesting help, etc. A useful tool in Facebook messenger is the polling feature, this was used on multiple occasions, in the example it is being used to decide on a day for a meeting (Figure 9). 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{An example of voting in the group chat}
 \centering
 \includegraphics[width=0.7\textwidth]{figure3.PNG}
@@ -283,7 +347,7 @@ A final improvement that would increase the usability of our system would be inc
 \section{Peer Assessment}
 Here is the breakdown of points allocation, agreed by each member of the group:
 
-\begin{figure} [h!]
+\begin{figure} [H]
 \caption{The agreed upon score}
 \centering
 \includegraphics[width=0.7\textwidth]{peer.PNG}
@@ -292,93 +356,139 @@ Here is the breakdown of points allocation, agreed by each member of the group:
 As it is visible the team has elected to distribute all marks equally amongst the six members.
 
 
-\section{References}
 
-Bloom, N., Liang, J., Roberts, J., \& Ying, Z. J. 
-(2015).
-DOES WORKING FROM HOME WORK? EVIDENCE 
-FROM A CHINESE EXPERIMENT*.
-Retrieved from https://nbloom.people
-.stanford.edu/sites/g/files/sbiybj4746/f/wfh.pdf
-
-
-Dropbox. (2016). Celebrating half a
-billion users. Retrieved
-from Dropbox blog: https://blog.
-dropbox.com/topics/company
-/500-million
-
-
-Dropbox. (2019). The right Dropbox
-for you. Retrieved
-from Dropbox: https://www.dropbox
-.com/plans?oqa=acc
-\_plan\_upgrade
-
-
-GitHub. (2019, April). User Search.Retrieved from GitHub: https://github.com/search ?q=type:user\&type=Users
-
-
-GitHub. (2019). What is my disk quota?
-Retrieved from 
-GitHub.Help: https://help.github.com
-/en/articles/what-is-my-disk-quota
-
-
-Google. (2019). Drive Features. Retrieved from 
-https://www.google.com/drive/using-drive/
-
-
-Gousios, G., Vasilescu, 
-B., Serebrenik, A., \& Zaidman, 
-A. (2014). Lean GHTorrent:
-GitHub Data on Demand. MSR 2014 Proceedings of the
-11th Working Conference on
-Mining Software Repositories, 384 -387.
-
-
-Microsoft. (2019). One Drive Plans.
-Retrieved from One
-Drive: https://onedrive.live
-.com/about/en-gb/plans/
-
-
-Net Market Share. (2019). Operating 
-System Market Share.
-Retrieved from https://netmarketshare.com
-
-
-One Drive Community. (2018). onedrive web always stalls/hangs 
-after uploading few files - hangs on "uploading *** items" for
-ever (win 10 chrome and Edge and IE). Retrieved from One Drive User Voice: https://onedrive.uservoice.com/forums/913528-
-onedrive-on-the-web/suggestions/33208225-onedrive-web-always-stalls-hangs-after-uploading-f
-
-
-Price, D. (2018). The True Market Shares of Windows 
-vs. Linux Compared. Retrieved from Make Use Of:
-https://www.makeuseof.com/tag/linux-market-share/
-
-
-Smith, C. (2019, March). 20 Amazing GitHub Statistics 
-and Facts 2019 | By the Numbers. Retrieved from DMR:
+\begin{thebibliography}{9}
+\bibitem{1} 
+Bloom, N., Liang, J., Roberts, J., \& Ying, Z. J. (2015). DOES WORKING FROM HOME WORK? EVIDENCE FROM A CHINESE EXPERIMENT*. Retrieved from https://nbloom.people.stanford.edu/sites/g/files/sbiybj4746/f/wfh.pdf
+\bibitem{2} 
+Dropbox. (2016). Celebrating half a billion users. Retrieved from Dropbox blog: https://blog.dropbox.com/topics/company/500-million
+\bibitem{3} 
+Bloom, N., Liang, J., Roberts, J., \& Ying, Z. J. (2015). DOES WORKING FROM HOME WORK? EVIDENCE FROM A CHINESE EXPERIMENT*. Retrieved from https://nbloom.people.stanford.edu/sites/g/files/sbiybj4746/f/wfh.pdf
+\bibitem{4} 
+Dropbox. (2016). Celebrating half a billion users. Retrieved from Dropbox blog: https://blog.dropbox.com/topics/company/500-million
+\bibitem{5} 
+Dropbox. (2019). The right Dropbox for you. Retrieved from Dropbox: https://www.dropbox.com/plans?oqa=acc\_plan\_upgrade
+\bibitem{6} 
+GitHub. (2019, April). User Search. Retrieved from GitHub: https://github.com/search?q=type:user\&type=Users
+\bibitem{7} 
+GitHub. (2019). What is my disk quota? Retrieved from GitHub.Help: https://help.github.com/en/articles/what-is-my-disk-quota
+\bibitem{8} 
+Google. (2019). Drive Features. Retrieved from https://www.google.com/drive/using-drive/
+\bibitem{9} 
+Gousios, G., Vasilescu, B., Serebrenik, A., \& Zaidman, A. (2014). Lean GHTorrent: GitHub Data on Demand. MSR 2014 Proceedings of the 11th Working Conference on Mining Software Repositories, 384 -387.
+\bibitem{10} 
+Microsoft. (2019). One Drive Plans. Retrieved from One Drive: https://onedrive.live.com/about/en-gb/plans/
+Net Market Share. (2019). Operating System Market Share. Retrieved from https://netmarketshare.com
+\bibitem{11} 
+One Drive Community. (2018). onedrive web always stalls/hangs after uploading few files - hangs on "uploading *** items" for ever (win 10 chrome and Edge and IE). Retrieved from One Drive User Voice:
+https://onedrive.uservoice.com/forums/913528-onedrive-on-the-web/suggestions/33208225-onedrive-web-always-stalls-hangs-after-uploading-f
+\bibitem{12} 
+Price, D. (2018). The True Market Shares of Windows vs. Linux Compared. Retrieved from Make Use Of: https://www.makeuseof.com/tag/linux-market-share/
+\bibitem{13} 
+Smith, C. (2019, March). 20 Amazing GitHub Statistics and Facts 2019 | By the Numbers. Retrieved from DMR:
 https://expandedramblings.com/index.php/github-statistics/
+\bibitem{14} 
+Statista. (2018). Market share of Windows Phone in the United Kingdom (UK) from December 2011 to September 2018. Retrieved from https://www.statista.com/statistics/271255/windows-phone-market-share-in-the-united-kingdom-uk/
+\bibitem{15} 
+Tech Crunch. (2018). Google Drive will hit a billion users this week. Retrieved from https://techcrunch.com/2018/07/25/google-drive-will-hit-a-billion-users-this-week/guccounter=1\&guce\_referrer\_us=aHR0cHM6Ly93d3cudGhldmVyZ2UuY29tLw 
+ \&guce\_referrer\_cs=7TGZhIYb4figcc6zWPN7Bw
+\bibitem{16} 
+Tutorials Point. (2019). HTTP Requests. Retrieved from Tutorials Point: https://www.tutorialspoint.com/http/http\_requests.htm
+Warren, T. (2018). Microsoft completes GitHub acquisition. Retrieved from The Verge: https://www.msn.com/en-us/news/technology/microsoft-completes-github-acquisition/ar-BBOVVOT
+
+\end{thebibliography}
+
+\textbf{Appendix}
+
+\appendix
+
+\section{Libraries}
+
+\begin{itemize}
+  \item Lokijs : http://lokijs.org/
+  \item Node.JS : https://nodejs.org/en/
+  \item MongoDB : https://www.mongodb.com/
+  \item Electron : https://electronjs.org/
+  \item Fast Android Networking : https://github.com/amitshekhariitbhu/Fast-Android-Networking
+  \item OkHTTP3: https://github.com/square/okhttp
+  \item android-file-chooser: 
+  
+  (https://github.com/hedzandroid-file-chooseb.com/hedzr/android-file-chooser)
+  \item RSync : https://rsync.samba.org/
+\end{itemize}
+
+\section{Server Code}
+
+\setcounter{figure}{0}    
+
+\begin{figure} [H]
+\caption{Database Schema for a single file}
+\centering
+\includegraphics[width=0.7\textwidth]{AFileSchema.PNG}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Delete API}
+\centering
+\includegraphics[width=0.7\textwidth]{ADelete.PNG}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Download API}
+\centering
+\includegraphics[width=0.7\textwidth]{ADownload.PNG}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Upload API}
+\centering
+\includegraphics[width=0.7\textwidth]{AUpload.PNG}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Getfiles API}
+\centering
+\includegraphics[width=0.7\textwidth]{AUpload.PNG}
+\end{figure}
+
+\section{Android UI}
+
+\begin{figure} [H]
+\caption{Android UI to log in to application and user account}
+\centering
+\includegraphics[width=0.3\textwidth]{Group_Project/login.png}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Android UI to register user account}
+\centering
+\includegraphics[width=0.3\textwidth]{Group_Project/register.png}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Android UI to view server files}
+\centering
+\includegraphics[width=0.3\textwidth]{Group_Project/files.png}
+\end{figure}
 
 
-Statista. (2018). Market share of Windows Phone 
-in the United Kingdom (UK) from December 2011 to September 2018.
-Retrieved from https://www.statista.com/statistics/271255/
-windows-phone-market-share-in-the-united-kingdom-uk/
+\begin{figure} [H]
+\caption{Android UI to choose file to upload}
+\centering
+\includegraphics[width=0.3\textwidth]{Group_Project/choose.png}
+\end{figure}
+
+\begin{figure} [H]
+\caption{Android UI to upload files to server}
+\centering
+\includegraphics[width=0.3\textwidth]{Group_Project/upload.png}
+\end{figure}
 
 
-Tech Crunch. (2018). Google Drive will hit a billion users this week.
-Retrieved from https://techcrunch.com/2018/07/25/
-google-drive-will-hit-a-billion-users-this-week/
-?guccounter=1\&guce\_referrer\_us=aHR0cHM6Ly93d3cudGhldmVyZ2UuY29tLw
-\&guce\_referrer\_cs=7TGZhIYb4figcc6zWPN7Bw
 
 
-Tutorials Point. (2019). HTTP Requests. Retrieved from 
-Tutorials Point: https://www.tutorialspoint.com/http/http\_requests.htm
+
+
 
 
 \end{document}
