@@ -273,6 +273,10 @@ function showTable(obj){
     var th4 = document.createElement("th");
     th4.appendChild(document.createTextNode("download"));
     tr1.appendChild(th4);
+
+    var th5 = document.createElement("th");
+    th5.appendChild(document.createTextNode("Delete"));
+    tr1.appendChild(th5);
     
     node_table.appendChild(tr1);
 
@@ -294,6 +298,7 @@ function showTable(obj){
 
 
         //<i id="canceldir" onclick="cancelchoice('selected_directory')" class="material-icons">
+        var node41=document.createElement("td");
         var node4=document.createElement("i");
         node4.id = obj[i].$loki;
         node4.classList.add("material-icons")
@@ -329,11 +334,28 @@ function showTable(obj){
 
 
         node4.appendChild(document.createTextNode("cloud_download"));
-        
+        node41.appendChild(node4);
+
+        var node51=document.createElement("td");
+        var node5 = document.createElement("i");
+        node5.id = "D"+obj[i].$loki;
+        node5.classList.add("material-icons")
+        node5.style.verticalAlign="middle"
+        node5.style.paddingLeft="20px"
+        node5.appendChild(document.createTextNode("cancel_presentation"));
+        node5.onclick=function()
+        {
+            DeleteFile(this.id);
+            alert("Delete successfully.Please get file list again.")
+            //getAllFile();
+        }
+        node51.appendChild(node5);
+
         node_tr.appendChild(node1);
         node_tr.appendChild(node2);
         node_tr.appendChild(node3);
-        node_tr.appendChild(node4);
+        node_tr.appendChild(node41);
+        node_tr.appendChild(node51);
 
         node_table.appendChild(node_tr);
     }
@@ -362,5 +384,26 @@ function downloadByID(){
     alert("test dl1");
     console.log(body);
 
+    });
+}
+
+
+function DeleteFile(id){
+    var ch = id.toString();
+    var ch2 = ch[1];
+    //alert(ch2);
+    var request = require("request");
+
+    var options = { method: 'DELETE',
+    url: 'http://46.101.20.26:3003/delete/'+ch2,
+    headers: 
+    { 'Postman-Token': '204025c3-a8b9-47a5-87ff-15c2c2477564',
+        'cache-control': 'no-cache' } };
+
+    request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+        
+        console.log(body);
+        //getAllFile();
     });
 }
