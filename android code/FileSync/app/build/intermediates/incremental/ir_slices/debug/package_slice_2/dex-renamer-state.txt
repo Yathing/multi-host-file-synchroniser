@@ -1,4 +1,0 @@
-#Wed Mar 27 10:35:17 GMT 2019
-base.0=C\:\\Users\\Marci\\Desktop\\Android\\FileSync\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
-path.0=classes.dex
-renamed.0=classes.dex

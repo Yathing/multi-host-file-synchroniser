@@ -7,6 +7,13 @@ public class FilePojo {
     private  int key;
     private  String numbers;
 
+    /**
+     * @param size
+     * @param date
+     * @param filename
+     * @param key
+     * @param numbers
+     */
     public FilePojo(String size, String date, String filename, int key, String numbers) {
         this.size = size;
         this.date = date;
