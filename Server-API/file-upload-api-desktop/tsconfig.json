@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es6",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "dist"
+    }
+}
+//The compiled javascript code will be output to dist folder.
+//Since Node Js 7.5+ support ES6 / 2015, we will set the target as es6.
